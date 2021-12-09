@@ -19,11 +19,16 @@ else:
     print()
     print('Do you want to use the "Who is lucky?" feature? Write Yes/No:')
     lucky_option = input()
+    print()
     if lucky_option == 'Yes':
         lucky_one = random.choice(names)
         print(f'{lucky_one} is the lucky one!')
+        for key in bills:
+            bills[key] = round(total_bill / (join_num - 1), 2)
+        bills[lucky_one] = 0
     else:
         print('No one is going to be lucky')
-    for key in bills:
-        bills[key] = round(total_bill / (join_num - 1), 2)
-#    print(bills)
+        for key in bills:
+            bills[key] = round(total_bill / join_num, 2)
+    print()
+    print(bills)
